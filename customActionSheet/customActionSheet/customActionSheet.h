@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IBActionSheet.h"
 
 @interface customActionSheet : UIActionSheet
 

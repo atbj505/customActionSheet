@@ -27,5 +27,7 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [self.actionSheet showInView:self.view];
 }
-
+-(void)willPresentActionSheet:(UIActionSheet *)actionSheet{
+    NSUInteger count = actionSheet.subviews.count;
+}
 @end
