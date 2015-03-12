@@ -11,23 +11,40 @@
 
 @interface ViewController ()
 
-@property (nonatomic, strong) customActionSheet *actionSheet;
+@property (nonatomic, strong) IBActionSheet *customIBAS;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.actionSheet = [[customActionSheet alloc] initWithTitle:nil
-                                                       delegate:self
-                                              cancelButtonTitle:@"取消"
-                                         destructiveButtonTitle:nil
-                                              otherButtonTitles:@"1",@"2", nil];
+    
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
+    btn.center = self.view.center;
+    [btn setTitle:@"button" forState:UIControlStateNormal];
+    [btn setBackgroundColor:[UIColor blackColor]];
+    [btn addTarget:self action:@selector(showActionSheet:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+    
+    
 }
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    [self.actionSheet showInView:self.view];
+- (void)showActionSheet:(UIButton *)btn {
+    NSString *title = @"This is a title!";;
+    
+    self.customIBAS = [[IBActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Some" otherButtonTitles:@"Other", @"Buttons", nil];
+    
+    self.customIBAS.blurBackground = YES;
+    [self.customIBAS setButtonBackgroundColor:[UIColor blackColor]];
+    [self.customIBAS setButtonTextColor:[UIColor whiteColor]];
+    self.customIBAS.buttonResponse = IBActionSheetButtonResponseHighlightsOnPress;
+    [self.customIBAS setButtonHighlightTextColor:[UIColor whiteColor]];
+    [self.customIBAS setButtonHighlightBackgroundColor:[UIColor redColor]];
+    
+    [self.customIBAS showInView:self.view];
 }
--(void)willPresentActionSheet:(UIActionSheet *)actionSheet{
-    NSUInteger count = actionSheet.subviews.count;
+#pragma mark -
+#pragma mark IBActionSheetDelegate
+-(void)actionSheet:(IBActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
 }
 @end

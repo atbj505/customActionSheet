@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "customActionSheet.h"
+#import "IBActionSheet.h"
 
-@interface ViewController : UIViewController <UIActionSheetDelegate>
+@interface ViewController : UIViewController <IBActionSheetDelegate>
 
 
 @end

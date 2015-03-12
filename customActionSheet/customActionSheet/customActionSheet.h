@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "IBActionSheet.h"
 
-@interface customActionSheet : UIActionSheet
+@interface customActionSheet : IBActionSheet
 
+- (id)initWithTitle:(NSString *)title delegate:(id<IBActionSheetDelegate>)delegate cancelButtonTitle:(NSString *)cancelTitle destructiveButtonTitle:(NSString *)destructiveTitle otherButtonTitles:(NSString *)otherTitles, ... NS_REQUIRES_NIL_TERMINATION;
 
 @end
