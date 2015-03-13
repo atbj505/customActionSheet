@@ -11,7 +11,7 @@
 
 @interface ViewController ()
 
-@property (nonatomic, strong) IBActionSheet *customIBAS;
+@property (nonatomic, strong) customActionSheet *customIBAS;
 @end
 
 @implementation ViewController
@@ -31,14 +31,7 @@
 - (void)showActionSheet:(UIButton *)btn {
     NSString *title = @"This is a title!";;
     
-    self.customIBAS = [[IBActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Some" otherButtonTitles:@"Other", @"Buttons", nil];
-    
-    self.customIBAS.blurBackground = YES;
-    [self.customIBAS setButtonBackgroundColor:[UIColor blackColor]];
-    [self.customIBAS setButtonTextColor:[UIColor whiteColor]];
-    self.customIBAS.buttonResponse = IBActionSheetButtonResponseHighlightsOnPress;
-    [self.customIBAS setButtonHighlightTextColor:[UIColor whiteColor]];
-    [self.customIBAS setButtonHighlightBackgroundColor:[UIColor redColor]];
+    self.customIBAS = [[customActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Some" otherButtonTitles:@"Other", @"Buttons", nil];
     
     [self.customIBAS showInView:self.view];
 }
